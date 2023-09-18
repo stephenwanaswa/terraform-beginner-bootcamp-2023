@@ -1,11 +1,11 @@
 # Terraform Beginner Bootcamp 2023
 
-### Semantic Versioning
+### Semantic Versioning :mage:
 Project will utilises semantic versioning for tagging based on [Semver.org](https://semver.org/)
 
 This is the general format
 
-Given a version number **MAJOR.MINOR.PATCH**,ve.g. (`1.0.1`) 
+Version number Example **MAJOR.MINOR.PATCH**  (`1.0.1`) 
 
 We then increment the:
  
