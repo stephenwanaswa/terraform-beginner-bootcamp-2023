@@ -15,6 +15,61 @@ We then increment the:
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
+## Terraform Basics
+
+### Terraform Registry
+Terraform Sources their providers and modules fron te Terraform Registry which is located at [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers** are interfaces to APIs that will allows you to create resources in terraform e.g. [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+- **Modules**  are a way to make larger amount of terrraform code modular, portable and shareable
+
+
+### Terraform Console
+We can see a list of all terraform command by typing ```terraform```
+
+#### Terraform Init
+```terraform init```
+
+At the start of a new terraform project we will run ```terraform init``` to download the binaries for the terraform provider that we will use for this project.
+
+#### Terraform Plan
+```terraform plan```
+
+Generates out a changeset about the state of our infrastructure and what will be changed. The output can be passed to an apply, but not always necessary.
+
+#### Terraform Apply
+```terraform apply```
+
+This will run a plan and pass the changeset to be executed by terrraform. Apply prompt a Yes or no . You can also use the auto approve flag to skip this ```terraform apply --auto-approve```
+
+#### Terrraform Lock Files
+```terraform.lock.hcl```
+
+This contains the locked versioning for the providers or modulues that should be used with this project.
+
+The Terraform Lock File should be committed to your Version Control System (VSC) eg. Github
+
+#### Terraform State Files
+```.terraform.tfstate ```
+
+This contain information about the current state of your infrastructure.
+
+This file should not be commited to your VCS.
+
+This file can contain sensintive data.
+
+If you lose this file, you lose knowning the state of your infrastructure.
+
+.terraform.tfstate.backup is the previous state file state.
+
+#### Terraform Directory
+
+```.terraform ```
+
+The directory contains binaries of terraform providers.
+
+
 ## References
 
 ### Installing Terraform CLI
