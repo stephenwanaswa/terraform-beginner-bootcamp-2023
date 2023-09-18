@@ -43,6 +43,13 @@ Generates out a changeset about the state of our infrastructure and what will be
 
 This will run a plan and pass the changeset to be executed by terrraform. Apply prompt a Yes or no . You can also use the auto approve flag to skip this ```terraform apply --auto-approve```
 
+#### Terraform Destroy
+```teraform destroy ```
+
+This will destroy resources created.
+
+You can also use the auto approve flag to skip the approve prompt eg. ```terraform apply --auto-approve```
+
 #### Terrraform Lock Files
 ```terraform.lock.hcl```
 
