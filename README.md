@@ -16,6 +16,7 @@ We then increment the:
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 ## References
+
 ### Installing Terraform CLI
 We will be installing using the officially maintained and signed packages for the debian Linux distributions using the link below.
 
