@@ -105,6 +105,9 @@ Provide the following code (replace your token in the file):
 }
 ``````
 
+### Terraform bash Script Login
+Added a bash script to automate the Terraform Cloud login [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
 
 ## References
 
