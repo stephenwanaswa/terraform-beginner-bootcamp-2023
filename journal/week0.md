@@ -101,7 +101,7 @@ When executing the bash script we can use the ```./``` shorthand notation to exe
 
 eg. ```./bin/install_terraform_cli ```
 
-If we are using a script in .gitpod.yml we need to point the script to a program to interpert it.
+If we are using a script in .gitpod.yml we need to point the script to a program to interpret it.
 
 eg. ```source ./bin/install_terraform_cli```
 
@@ -135,7 +135,7 @@ With Gitpod, you have the following three types of tasks:
 
 ### Working Env Vars
 #### env command
-We can list out all Enviroment Variables (Env Vars) using the ```env``` command
+We can list out all Environment Variables (Env Vars) using the ```env``` command
 
 We can filter specific env vars using grep eg. ```env | grep AWS_```
 
@@ -169,9 +169,9 @@ We can persist env vars into gitpod by storing them in Gitpod Secrets Storage.
 
 ```gp env HELLO='world'```
 
-All future workspaces launched will set the env vars for all bash terminals opened in thoes workspaces.
+All future workspaces launched will set the env vars for all bash terminals opened in those workspaces.
 
-You can also set en vars in the .gitpod.yml but this can only contain non-senstive env vars.
+You can also set en vars in the .gitpod.yml but this can only contain non-sensitive env vars.
 
 ## Github Workflow
 This is the workflow we have adapted for the bootcamp
@@ -254,11 +254,11 @@ aws sts get-caller-identity
 HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share.
 
 ### Terraform Registry
-Terraform Sources their providers and modules fron te Terraform Registry which is located at [registry.terraform.io](https://registry.terraform.io/)
+Terraform Sources their providers and modules from te Terraform Registry which is located at [registry.terraform.io](https://registry.terraform.io/)
 
 - **Providers** are interfaces to APIs that will allows you to create resources in terraform e.g. [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
 
-- **Modules**  are a way to make larger amount of terrraform code modular, portable and shareable
+- **Modules**  are a way to make larger amount of terraform code modular, portable and shareable
 
 ### Installing Terraform CLI
 We will be installing using the officially maintained and signed packages for the debian Linux distributions using the link below.
@@ -283,19 +283,19 @@ Generates out a changeset about the state of our infrastructure and what will be
 #### Terraform Apply
 ```terraform apply```
 
-This will run a plan and pass the changeset to be executed by terrraform. Apply prompt a Yes or no . You can also use the auto approve flag to skip this ```terraform apply --auto-approve```
+This will run a plan and pass the changeset to be executed by terraform. Apply prompt a Yes or no . You can also use the auto approve flag to skip this ```terraform apply --auto-approve```
 
 #### Terraform Destroy
-```teraform destroy ```
+```terraform destroy ```
 
 This will destroy resources created.
 
 You can also use the auto approve flag to skip the approve prompt eg. ```terraform apply --auto-approve```
 
-#### Terrraform Lock Files
+#### Terraform Lock Files
 ```terraform.lock.hcl```
 
-This contains the locked versioning for the providers or modulues that should be used with this project.
+This contains the locked versioning for the providers or modules that should be used with this project.
 
 The Terraform Lock File should be committed to your Version Control System (VSC) eg. Github
 
@@ -304,11 +304,11 @@ The Terraform Lock File should be committed to your Version Control System (VSC)
 
 This contain information about the current state of your infrastructure.
 
-This file should not be commited to your VCS.
+This file should not be committed to your VCS.
 
-This file can contain sensintive data.
+This file can contain sensitive data.
 
-If you lose this file, you lose knowning the state of your infrastructure.
+If you lose this file, you lose knowing the state of your infrastructure.
 
 .terraform.tfstate.backup is the previous state file state.
 
