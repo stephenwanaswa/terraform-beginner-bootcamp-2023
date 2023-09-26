@@ -67,3 +67,37 @@ Terraform evaluates variable in a specific order. The order of the variable eval
 4. Command-Line Flags: You can also set variable values directly using command-line flags when running Terraform commands. eg ```terraform apply -var="region=us-east-1"```
 5. Interactive Prompts: If a variable is still unspecified after checking all the above sources, Terraform will interactively prompt you for the value when you run terraform apply or terraform plan. This is the fallback option for variables without values.
 
+## Dealing With Configuration Drift
+
+## What happens if we lose our state file?
+
+If you lose your statefile, you most likley have to tear down all your cloud infrastructure manually.
+
+You can use terraform port but it won't work for all cloud resources. You need check the terraform providers documentation for which resources support terraform import.
+
+### Fix Missing Resources with Terraform Import
+You can use the command below on cli to import a resource
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+Another alternative is to use `import.tf` file to have the resources you need imported.
+
+```
+# import.tf
+
+# Define a Terraform resource block for an AWS S3 bucket
+resource "aws_s3_bucket" "example" {
+  bucket = ""
+  acl    = ""
+  # ... other required attributes
+}
+```
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone goes and delete or modifies cloud resource manually through ClickOps. 
+
+If we run Terraform plan is with attempt to put our infrastructure back into the expected state fixing Configuration Drift
