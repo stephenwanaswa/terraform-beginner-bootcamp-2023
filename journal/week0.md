@@ -1,3 +1,5 @@
+# Terraform Beginner Bootcamp 2023 - Week 0
+
 - [Semantic Versioning :mage:](#semantic-versioning--mage-)
 - [Linux Basics](#linux-basics)
   * [Bash Scripting](#bash-scripting)
@@ -20,6 +22,7 @@
   * [Git Commit](#git-commit)
   * [Git Stash](#git-stash)
   * [Git Tag](#git-tag)
+    + [Fixing Tags](#fixing-tags)
 - [AWS CLI installation](#aws-cli-installation)
 - [Terraform Basics](#terraform-basics)
   * [Terraform Registry](#terraform-registry)
@@ -29,12 +32,11 @@
     + [Terraform Plan](#terraform-plan)
     + [Terraform Apply](#terraform-apply)
     + [Terraform Destroy](#terraform-destroy)
-    + [Terrraform Lock Files](#terrraform-lock-files)
+    + [Terraform Lock Files](#terraform-lock-files)
     + [Terraform State Files](#terraform-state-files)
     + [Terraform Directory](#terraform-directory)
 - [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
   * [Terraform bash Script Login](#terraform-bash-script-login)
-
 
 
 
@@ -226,6 +228,29 @@ Push the tag to the repository
 
 ```git push --tags ```
 
+#### Fixing Tags
+
+[How to Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+Local delete a tag
+```sh
+git tag -d <tag_name>
+```
+
+Remotely delete tag
+
+```sh
+git push --delete origin tagname
+```
+
+Checkout the commit that you want to retag. Grab the sha from your Github history.
+
+```sh
+git checkout <SHA>
+git tag M.M.P
+git push --tags
+git checkout main
+```
 
 
 [Git Documentation](https://git-scm.com/docs)
