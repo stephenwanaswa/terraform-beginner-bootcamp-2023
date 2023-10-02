@@ -1,3 +1,9 @@
+# Terraform Beginner Bootcamp 2023 - Week 2
+![week 2](journal/assets/week2-connect.png)
+![week 2](journal/assets/week2-provider-physical-diagram.png)
+![week 2](journal/assets/week2-anatomy-of-a-request.png)
+
+
 ## Working with Ruby
 
 ### Bundler
