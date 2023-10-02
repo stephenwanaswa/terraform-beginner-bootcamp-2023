@@ -1,7 +1,11 @@
 # Terraform Beginner Bootcamp 2023 - Week 2
-![week 2](journal/assets/week2-connect.png)
-![week 2](journal/assets/week2-provider-physical-diagram.png)
-![week 2](journal/assets/week2-anatomy-of-a-request.png)
+![week 2](assets/week2-connect.png)
+
+## TerraTowns Provider Physical Diagram
+![Physical Diagram](assets/week2-provider-physical-diagram.png)
+
+## Anatomy of a Request
+![Anatomy of a request](assets/week2-anatomy-of-a-request.png)
 
 
 ## Working with Ruby
