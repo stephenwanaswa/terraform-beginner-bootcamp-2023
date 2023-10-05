@@ -25,7 +25,7 @@ terraform {
 }
 
 provider "terratowns" {
-  endpoint = "http://localhost:4567"
+  endpoint = "http://localhost:4567/api"
   user_uuid="e328f4ab-b99f-421c-84c9-4ccea042c7d1" 
   token="9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
 }
@@ -38,4 +38,15 @@ provider "terratowns" {
 #   content_version = var.content_version
 #   assets_path = var.assets_path
 # }
+
+resource "terratowns_home" "home" {
+  name = "Text based games!"
+  description = <<DESCRIPTION
+Text-based games, also known as text games or interactive fiction, are a genre of video games that rely primarily on text to convey the game's story, world, and interactions. These games have been around since the early days of computing and are characterized by their absence of graphics or visual elements, relying solely on text descriptions and user input
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "gamers-grotto"
+  content_version = 1
+}
 
