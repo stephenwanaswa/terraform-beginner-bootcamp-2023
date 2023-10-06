@@ -5,6 +5,6 @@ medievil = {
 }
 hiking = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/hiking"
-  content_version = 1 
+  content_version = 2 
 
 }
