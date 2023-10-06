@@ -1,7 +1,7 @@
 terratowns_endpoint="https://terratowns.cloud/api"
 medievil = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/medievil"
-  content_version = 1 
+  content_version = 4 
 }
 hiking = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/hiking"

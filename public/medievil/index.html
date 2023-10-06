@@ -3,12 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medievil</title>
+    <title>MediEvil Game Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #100E1D; /* Dark purple from cover art */
+            color: #F2EFEA; /* Light cream from cover art */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .fullscreen {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100vw;
+        }
+        header {
+            background-color: #F2552C; /* Orange from cover art */
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        h1 {
+            font-size: 36px;
+            color: #100E1D; /* Dark purple for contrast */
+        }
+        p {
+            font-size: 18px;
+        }
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .menu li:last-child {
+            margin-right: 0;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #F2EFEA; /* Light cream from cover art */
+            font-weight: bold;
+        }
+        .menu a:hover {
+            color: #D94113; /* Slightly darker orange for hover effect */
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        .sidebar-content {
+            width: 20%;
+            min-width: 200px;
+            padding: 20px;
+            background-color: #232323; /* Dark background color for sidebar */
+        }
+        .main-content {
+            width: 80%;
+            padding: 2em;
+            text-align: left;
+        }
+        .game-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .game-description {
+            margin: 20px 0;
+        }
+        .play-button {
+            background-color: #F2552C; /* Orange from cover art */
+            color: #F2EFEA; /* Light cream from cover art */
+            padding: 10px 20px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .play-button:hover {
+            background-color: #D94113; /* Slightly darker orange for hover effect */
+        }
+        .chapter-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .chapter-list li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Slideshow styles */
+        .slideshow-container {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: #100E1D; /* Dark purple from cover art */
+            color: #F2EFEA; /* Light cream from cover art */
+            margin-top: 20px;
+            margin-bottom: 20px; /* Added margin-bottom */
+        }
+
+        .slideshow-content {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Previous and Next buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: #F2552C; /* Orange from cover art */
+            color: #F2EFEA; /* Light cream from cover art */
+            font-size: 16px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        /* Style for the image row */
+    .image-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 200px;
+        overflow: hidden;
+    }
+
+    /* Style for each image column */
+    .image-column {
+        flex: 0 0 auto;
+    }
+
+    /* Style for images within columns */
+    .image-column img {
+        max-height: 200px; /* Set the max height of the images */
+        width: auto;
+    }
+
+    /* Style for the game cover art image */
+    .game-image {
+        max-height: 200px; /* Set the max height of the game cover art image */
+        width: auto;
+    }
+
+    /* Style for the image row */
+    .image-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 200px;
+        overflow: hidden;
+    }
+
+    /* Style for each image column */
+    .image-column {
+        flex: 0 0 auto;
+    }
+
+    /* Style for images within columns */
+    .image-column img {
+        max-height: 200px;
+        width: auto;
+    }
+
+    </style>
 </head>
 <body>
-    <h1>Best Playstation Game Ever</h1>
-    <h2>Medievil</h2>
-    <img src="./assets/cover-art.jpg" alt="" style="width: 50%; height: 50%; object-fit: cover;">
-    <img src="./assets/screenshot.jpg" alt="" style="width: 50%; height: 50%; object-fit: cover;">
+    <div class="fullscreen">
+        <header>
+            <h1>MediEvil</h1>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About the Game</a></li>
+                <li><a href="#">Walkthrough</a></li>
+                <li><a href="#">Tips</a></li>
+            </ul>
+        </header>
+        <div class="container">
+            <div class="sidebar-content">
+                <ul class="chapter-list">
+                    <li>Chapter 1: The Awakening</li>
+                    <li>Chapter 2: The Cemetery</li>
+                    <li>Chapter 3: The Enchanted Earth</li>
+                    <li>Chapter 4: The Ant Caves</li>
+                    <!-- Add more chapters as needed -->
+                    <li>Chapter 5: The Gallows Gauntlet</li>
+                    <li>Chapter 6: Return to the Graveyard</li>
+                    <li>Chapter 7: Scarecrow Fields</li>
+                    <li>Chapter 8: Pumpkin Gorge</li>
+                    <li>Chapter 9: Inside the Asylum</li>
+                    <li>Chapter 10: The Time Device</li>
+                    <!-- Add more chapters as needed -->
+                </ul>
+            </div>
+            <!-- Previous code here -->
+
+<!-- Main Content Section -->
+<div class="main-content">
+    <img class="game-image" src="./assets/cover-art.jpg" alt="MediEvil Game Cover Art">
+    <div class="game-description">
+        <p>"MediEvil" is a beloved action-adventure game set in the medieval kingdom of Gallowmere. Join Sir Daniel Fortesque on his quest to defeat the evil sorcerer Zarok and save the kingdom from the undead menace.</p>
+    </div>
+        
+   
+    <!-- Row with Two Columns for Images -->
+    <div class="image-row">
+        <div class="image-column">
+            <img src="./assets/medievil.png" alt="Image 1">
+        </div>
+        <div class="image-column">
+            <img src="./assets/screenshot.jpg" alt="Image 2">
+        </div>
+    </div>
+    <!-- End of Row with Two Columns -->
+</div>
+<!-- End of Main Content Section -->
+
+        </div>
+        
+        <!-- Text Slideshow -->
+        <div class="slideshow-container">
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 1</h3>
+                <p>Save Your Health: Health is a valuable resource in "MediEvil." Use healing items and potions wisely, especially during tough battles. Try to avoid taking unnecessary damage.</p>
+            </div>
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 2</h3>
+                <p>Experiment with Weapons: The game offers a variety of weapons. Experiment with different weapons to find the ones that suit your playstyle best. Some weapons may be more effective against certain enemies.</p>
+            </div>
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 3</h3>
+                <p>Block and Counter: Blocking attacks with your shield is crucial for survival. Learn the timing for blocking enemy strikes, and use counter-attacks when the opportunity arises.</p>
+            </div>
+            
+            <!-- Add more slides with game tips as needed -->
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 4</h3>
+                <p>Explore Thoroughly: Don't rush through levels. Explore every nook and cranny to find hidden items, secrets, and shortcuts. There are often valuable rewards for thorough exploration.</p>
+            </div>
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 5</h3>
+                <p>Collect Chalices: Chalices are important collectibles in "MediEvil." Try to collect them in each level, as they can lead to unlocking powerful weapons and items.</p>
+            </div>
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 6</h3>
+                <p>Use Your Shield Wisely: Your shield can block not only enemy attacks but also some environmental hazards. Keep it handy when navigating tricky areas.</p>
+            </div>
+            <div class="slideshow-content" style="padding: 20px;">
+                <h3>Game Tip 7</h3>
+                <p>Pay Attention to the Story: "MediEvil" has an engaging storyline. Pay attention to the characters and dialogues to immerse yourself in the game's narrative.</p>
+            </div><div class="slideshow-content"> style="padding: 20px;"
+                <h3>Game Tip 8</h3>
+                <p>Practice Your Combat Skills: Combat in the game can be challenging. Practice your combat skills in safe areas to improve your abilities and timing.</p>
+            </div><div class="slideshow-content" style="padding: 20px;"> 
+                <h3>Game Tip 9</h3>
+                <p>Save Frequently: Make use of save points whenever you encounter them. Saving your progress regularly can prevent frustration if you happen to meet a difficult challenge.</p>
+            </div><div class="slideshow-content" style="padding: 20px;"> 
+                <h3>Game Tip 10</h3>
+                <p>Have Fun: Lastly, remember to have fun! "MediEvil" is known for its quirky and dark sense of humor. Enjoy the game's unique atmosphere and style.</p>
+            </div>
+            
+            <a class="prev" onclick="changeSlide(-1)">Previous</a>
+            <a class="next" onclick="changeSlide(1)">Next</a>
+        </div>
+        <!-- End of Text Slideshow -->
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slideshow-content");
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        // Automatically change slides every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
