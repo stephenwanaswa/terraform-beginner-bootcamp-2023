@@ -43,7 +43,7 @@ MediEvil is an action-adventure video game released for the PlayStation in 1998.
 DESCRIPTION
    domain_name = module.home_medievil_hosting.domain_name
   #domain_name = "3fdaq3gz.cloudfront.net"
-  town = "missingo"
+  town = "gamers-grotto"
   content_version = var.medievil.content_version
 }
 
@@ -62,7 +62,7 @@ For the love of hiking
 DESCRIPTION
    domain_name = module.home_hiking_hosting.domain_name
   #domain_name = "3fdaq3gz.cloudfront.net"
-  town = "missingo"
+  town = "the-nomad-pad"
   content_version = var.hiking.content_version
 }
 
