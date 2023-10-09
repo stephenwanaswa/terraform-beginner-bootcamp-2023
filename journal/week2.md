@@ -39,6 +39,10 @@ A Gemfile.lock will be created to lock down the gem versions used in this projec
 
 We have to use `bundle exec` to tell future ruby scripts to use the gems we installed. This is the way we set context.
 
+
+## Terratowns Mock Server
+We use a mock server to simulate the production server. Using the mock server we can deploy and trouble shoot our terraform provider. 
+
 ### Sinatra
 
 Sinatra is a micro web-framework for ruby to build web-apps.
@@ -48,8 +52,6 @@ Its great for mock or development servers or for very simple projects.
 You can create a web-server in a single file.
 
 [Sinatra](https://sinatrarb.com/)
-
-## Terratowns Mock Server
 
 ### Running the web server
 
@@ -68,4 +70,44 @@ Terraform Provider resources utilize CRUD.
 
 CRUD stands for Create, Read Update, and Delete
 
+
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+## Terraform Best Practices
+Some of the security best practices to note are as follows
+
+### Credential and Access Management:
+- Secure Credential Management
+- Least Privilege Principle
+- Protect Access Keys
+- Use Instance Roles and Managed Identities
+
+### Configuration and State Management:
+- Use Remote State Storage
+- Secure State Files
+- Enable TLS for Communication
+- Audit and Version Control
+- Infrastructure as Code (IaC) Review
+
+### Module and Provider Security:
+- Verify Sources of Providers and Modules
+- Implement Input Validation
+- Use Dynamic Secrets for Credentials
+
+### Monitoring and Incident Response:
+- Monitoring and Logging
+- Resource Tagging for Tracking
+- Enable Security Logging and Alerts
+- Security Awareness Training
+
+### Compliance and Disaster Recovery:
+- Adhere to Compliance Standards
+- Implement Backup and Disaster Recovery
+
+### Infrastructure Review and Updates:
+- Regularly Review IaC
+- Keep Terraform and Plugins Updated
+
+
+
+
