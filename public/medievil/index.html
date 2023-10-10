@@ -1,316 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediEvil Game Showcase</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Game Website</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #100E1D; /* Dark purple from cover art */
-            color: #F2EFEA; /* Light cream from cover art */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        .fullscreen {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            width: 100vw;
-        }
-        header {
-            background-color: #F2552C; /* Orange from cover art */
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-        }
-        h1 {
-            font-size: 36px;
-            color: #100E1D; /* Dark purple for contrast */
-        }
-        p {
-            font-size: 18px;
-        }
-        .menu {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-        .menu li {
-            display: inline;
-            margin-right: 20px;
-        }
-        .menu li:last-child {
-            margin-right: 0;
-        }
-        .menu a {
-            text-decoration: none;
-            color: #F2EFEA; /* Light cream from cover art */
-            font-weight: bold;
-        }
-        .menu a:hover {
-            color: #D94113; /* Slightly darker orange for hover effect */
-        }
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 100%;
-            margin-top: 20px;
-        }
-        .sidebar-content {
-            width: 20%;
-            min-width: 200px;
-            padding: 20px;
-            background-color: #232323; /* Dark background color for sidebar */
-        }
-        .main-content {
-            width: 80%;
-            padding: 2em;
-            text-align: left;
-        }
-        .game-image {
-            max-width: 100%;
-            height: auto;
-        }
-        .game-description {
-            margin: 20px 0;
-        }
-        .play-button {
-            background-color: #F2552C; /* Orange from cover art */
-            color: #F2EFEA; /* Light cream from cover art */
-            padding: 10px 20px;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .play-button:hover {
-            background-color: #D94113; /* Slightly darker orange for hover effect */
-        }
-        .chapter-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .chapter-list li {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
+      /* Reset margin and padding for the whole page */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #100e1d;
+        color: #f2efea; /* Text color: #F2EFEA (Light cream from the cover art) */
+      }
 
-        /* Slideshow styles */
-        .slideshow-container {
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
-            position: relative;
-            background-color: #100E1D; /* Dark purple from cover art */
-            color: #F2EFEA; /* Light cream from cover art */
-            margin-top: 20px;
-            margin-bottom: 20px; /* Added margin-bottom */
-        }
+      /* Header styles */
+      header {
+        background-color: #f2552c; /* Orange from cover art */
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        color: #100e1d; /* Dark purple for contrast */
+      }
 
-        .slideshow-content {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
+      /* Centered logo styles */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px; /* Adjust the max-width as needed */
+      }
 
-        /* Previous and Next buttons */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 10px;
-            background-color: #F2552C; /* Orange from cover art */
-            color: #F2EFEA; /* Light cream from cover art */
-            font-size: 16px;
-        }
+      /* Navigation menu styles */
+      .navbar {
+        background-color: #f2552c;
+        padding: 10px 10px; /* Add padding left and right */
+        padding-top: 50px; /* Add padding top */
+        padding-bottom: 50px; /* Add padding bottom */
+        width: 100%;
+        justify-content: center; /* Center the menu horizontally */
+        z-index: 1;
+        display: flex; /* Display menu items side by side */
+        position: sticky;
+        top: 0;
+      }
 
-        .prev {
-            left: 0;
-        }
+      .navbar a {
+        color: #f2efea; /* Light cream from cover art */
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+      }
 
-        .next {
-            right: 0;
-        }
+      /* Change link hover color */
+      .navbar a:hover {
+        color: #444; /* Slightly darker orange for hover effect */
+      }
 
-        /* Style for the image row */
-    .image-row {
+      /* Sidebar styles */
+      .sidebar {
+        left: 0;
+        width: 10%; /* Set sidebar width to 10% */
+        background-color: #232323;
+        color: #f2efea; /* Light cream from cover art */
+        padding: 20px;
+        overflow-y: scroll;
+        position: fixed; /* Use 'fixed' positioning */
+        height: 100%; /* Occupy the full height of the viewport */
+      }
+
+      .sidebar a {
+        color: #f2efea; /* Light cream from cover art */
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      /* Style for the image gallery container */
+      .image-gallery-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
-        max-height: 200px;
-        overflow: hidden;
-    }
+        margin-top: 20px;
+        position: relative; /* Add relative positioning for slideshow */
+      }
 
-    /* Style for each image column */
-    .image-column {
-        flex: 0 0 auto;
-    }
+      /* Style for individual images */
+      .image-gallery img {
+        max-width: calc(
+          33.33% - 10px
+        ); /* Adjust the width and margin as needed */
+        margin-bottom: 10px;
+        cursor: pointer; /* Add cursor pointer for click event */
+      }
 
-    /* Style for images within columns */
-    .image-column img {
-        max-height: 200px; /* Set the max height of the images */
-        width: auto;
-    }
-
-    /* Style for the game cover art image */
-    .game-image {
-        max-height: 200px; /* Set the max height of the game cover art image */
-        width: auto;
-    }
-
-    /* Style for the image row */
-    .image-row {
+       /* Slideshow gallery container style */
+       .slideshow-gallery-container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-height: 200px;
+        position: relative;
         overflow: hidden;
-    }
+        max-height: 100%; /* Adjust the max-height as needed */
+      }
 
-    /* Style for each image column */
-    .image-column {
-        flex: 0 0 auto;
-    }
+      /* Slideshow gallery track style */
+      .slideshow-gallery-track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+      }
 
-    /* Style for images within columns */
-    .image-column img {
-        max-height: 200px;
-        width: auto;
-    }
+      /* Slideshow gallery item style */
+      .slideshow-gallery-item {
+        min-width: 100%;
+        box-sizing: border-box;
+      }
 
+      /* Slideshow gallery image style */
+      .slideshow-gallery-item img {
+        width: 100%;
+      }
+
+      /* Slideshow navigation buttons */
+      .slideshow-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f2efea;
+        border: none;
+        cursor: pointer;
+      }
+
+      .slideshow-button-prev {
+        left: 0;
+      }
+
+      .slideshow-button-next {
+        right: 0;
+      }
+
+      /* Content section styles */
+      .content-section {
+        margin-left: 20%; /* Adjust for sidebar width */
+        padding: 100px 1.5em 1.5em; /* Add padding */
+        color: #f2efea; /* Light cream from cover art */
+        width: 75%; /* Set content width to 80% */
+        margin-top: 100px;
+        height: auto;
+        /* height: calc(100vh - 101px); Remove or set to 'auto' */
+        overflow-y: auto; /* Use 'auto' to add scrollbars only when needed */
+      }
+
+      /* Initially hide all chapter sections */
+      .chapter-section {
+        display: none;
+      }
+
+      /* Display the default chapter */
+      #chapter1 {
+        display: block;
+      }
+
+      #home{
+        margin-top: -4%;
+      }
     </style>
-</head>
-<body>
-    <div class="fullscreen">
-        <header>
-            <h1>MediEvil</h1>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About the Game</a></li>
-                <li><a href="#">Walkthrough</a></li>
-                <li><a href="#">Tips</a></li>
-            </ul>
-        </header>
-        <div class="container">
-            <div class="sidebar-content">
-                <ul class="chapter-list">
-                    <li>Chapter 1: The Awakening</li>
-                    <li>Chapter 2: The Cemetery</li>
-                    <li>Chapter 3: The Enchanted Earth</li>
-                    <li>Chapter 4: The Ant Caves</li>
-                    <!-- Add more chapters as needed -->
-                    <li>Chapter 5: The Gallows Gauntlet</li>
-                    <li>Chapter 6: Return to the Graveyard</li>
-                    <li>Chapter 7: Scarecrow Fields</li>
-                    <li>Chapter 8: Pumpkin Gorge</li>
-                    <li>Chapter 9: Inside the Asylum</li>
-                    <li>Chapter 10: The Time Device</li>
-                    <!-- Add more chapters as needed -->
-                </ul>
+  </head>
+  <body>
+    <header>
+      <!-- Centered logo -->
+      <img class="logo" src="./assets/MediEvil_Logo.png" alt="MediEvil Logo" />
+    </header>
+
+    <div class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About the Game</a>
+      <a href="#tips">Tips</a>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <h2>Chapters</h2>
+      <a href="#chapter1" onclick="showChapter('chapter1')">Dan's Crypt</a>
+      <a href="#chapter2" onclick="showChapter('chapter2')">The Graveyard</a>
+      <a href="#chapter3" onclick="showChapter('chapter3')">Return to the Graveyard</a>
+      <a href="#chapter4" onclick="showChapter('chapter4')">Hilltop Mausoleum</a>
+      <a href="#chapter5" onclick="showChapter('chapter5')">Return to the Mausoleum</a>
+      <a href="#chapter6" onclick="showChapter('chapter6')">The Pumpkin Serpent</a>
+      <a href="#chapter7" onclick="showChapter('chapter7')">Inside the Asylum</a>
+      <a href="#chapter8" onclick="showChapter('chapter8')">The Asylum Grounds</a>
+      <a href="#chapter9" onclick="showChapter('chapter9')">Inside the Asylum Again</a>
+      <a href="#chapter10" onclick="showChapter('chapter10')">The Time Device</a>
+    </div>
+
+    <div class="content-section" id="home">
+      <a name="home"></a>
+      <!-- Home content goes here -->
+      <h2>MediEvil Game</h2>
+      <p>
+        "MediEvil" is a beloved action-adventure game set in the medieval
+        kingdom of Gallowmere. Join Sir Daniel Fortesque on his quest to defeat
+        the evil sorcerer Zarok and save the kingdom from the undead menace.
+      </p>
+
+      <!-- Image gallery -->
+      <h2>Image Gallery</h2>
+      <div class="image-gallery-container">
+        <div class="slideshow-gallery-container">
+          <div class="slideshow-gallery-track" id="slideshowGalleryTrack">
+            <div class="slideshow-gallery-item">
+              <img src="./assets/medievil2.jpg" alt="MediEvil Gallery Image 1" />
             </div>
-            <!-- Previous code here -->
+            <div class="slideshow-gallery-item">
+              <img src="./assets/medievil.png" alt="MediEvil Gallery Image 2" />
+            </div>
+            <div class="slideshow-gallery-item">
+              <img src="./assets/screenshot.jpg" alt="MediEvil Gallery Image 3" />
+            </div>
+            <!-- Add more images as needed -->
+          </div>
+ <!-- Slideshow controls -->
+ <div class="slideshow-controls">
+    <button class="slideshow-button slideshow-button-prev" onclick="plusSlides(-1)">
+      &#10094; Previous
+    </button>
+    <button class="slideshow-button slideshow-button-next" onclick="plusSlides(1)">
+      Next &#10095;
+    </button>
+    <button class="slideshow-button slideshow-button-play" id="playButton" onclick="playSlideshow()">
+      Play &#9654;
+    </button>
+    <button class="slideshow-button slideshow-button-pause" id="pauseButton" onclick="pauseSlideshow()">
+      Pause &#10074;&#10074;
+    </button>
+  </div>
 
-<!-- Main Content Section -->
-<div class="main-content">
-    <img class="game-image" src="./assets/cover-art.jpg" alt="MediEvil Game Cover Art">
-    <div class="game-description">
-        <p>"MediEvil" is a beloved action-adventure game set in the medieval kingdom of Gallowmere. Join Sir Daniel Fortesque on his quest to defeat the evil sorcerer Zarok and save the kingdom from the undead menace.</p>
-    </div>
-        
-   
-    <!-- Row with Two Columns for Images -->
-    <div class="image-row">
-        <div class="image-column">
-            <img src="./assets/medievil.png" alt="Image 1">
         </div>
-        <div class="image-column">
-            <img src="./assets/screenshot.jpg" alt="Image 2">
-        </div>
+      </div>
     </div>
-    <!-- End of Row with Two Columns -->
-</div>
-<!-- End of Main Content Section -->
 
+    <div class="content-section" id="about">
+      <!-- About the Game content goes here -->
+      <!-- Development History -->
+      <h3>Development History</h3>
+      <p>
+        The game "MediEvil" was developed by SCE Cambridge Studio and originally
+        released for the PlayStation console in 1998. It gained critical acclaim
+        for its unique blend of action, humor, and horror elements.
+      </p>
+
+      <!-- Important Statistics -->
+      <h3>Important Statistics</h3>
+      <ul>
+        <li>Release Year: 1998</li>
+        <li>Developer: SCE Cambridge Studio</li>
+        <li>Publisher: Sony Computer Entertainment</li>
+        <li>Genre: Action-Adventure</li>
+        <li>Platform: PlayStation</li>
+        <li>Metacritic Score: 88/100</li>
+        <li>Sales: Over 1.5 million copies sold</li>
+      </ul>
+    </div>
+
+    <div class="content-section" id="chapters">
+        <!-- Chapter content goes here -->
+        <div class="chapter-section" id="chapter1" style="padding-top:100px">
+          <!-- Chapter 1 content goes here -->
+          <h2>Dan's Crypt</h2>
+          <p>
+            Welcome to the eerie world of Dan's Crypt, where ancient secrets and undead horrors await. In this chapter, you'll accompany Sir Daniel Fortesque as he explores the crypt's dark chambers, facing off against skeletal foes and solving puzzles to uncover the truth.
+          </p>
+
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
         </div>
-        
-        <!-- Text Slideshow -->
-        <div class="slideshow-container">
-            <div class="slideshow-content" style="padding: 20px;">
+        <div class="chapter-section" id="chapter2" style="padding-top:100px">
+          <!-- Chapter 2 content goes here -->
+          <h2>The Graveyard</h2>
+          <p>
+            Prepare to enter the haunted Graveyard, where restless spirits and ghoulish creatures roam. Sir Daniel's quest continues as he battles his way through this eerie burial ground, searching for answers and confronting the malevolent forces that threaten the kingdom.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter3" style="padding-top:100px">
+          <!-- Chapter 3 content goes here -->
+          <h2>Return to the Graveyard</h2>
+          <p>
+            Revisit the Graveyard once more as you uncover new mysteries and face more formidable adversaries. Sir Daniel's determination to protect Gallowmere grows stronger with each step as he embarks on another perilous journey in this chapter.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter4" style="padding-top:100px">
+          <!-- Chapter 4 content goes here -->
+          <h2>Hilltop Mausoleum</h2>
+          <p>
+            Ascend to the Hilltop Mausoleum, where ancient tombs and dark secrets await your exploration. Sir Daniel faces both physical and metaphysical challenges as he climbs to new heights to uncover the kingdom's hidden history.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter5" style="padding-top:100px">
+          <!-- Chapter 5 content goes here -->
+          <h2>Return to the Mausoleum</h2>
+          <p>
+            Return to the Mausoleum, where the past and present collide. As the plot thickens, Sir Daniel must confront his destiny and face formidable foes once again in this chapter filled with twists and revelations.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter6" style="padding-top:100px">
+          <!-- Chapter 6 content goes here -->
+          <h2>The Pumpkin Serpent</h2>
+          <p>
+            Venture into the bizarre world of The Pumpkin Serpent, where unusual creatures and uncanny challenges await. Sir Daniel's courage is put to the test as he unravels the mysteries of this surreal chapter and battles peculiar adversaries.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter7" style="padding-top:100px">
+          <!-- Chapter 7 content goes here -->
+          <h2>Inside the Asylum</h2>
+          <p>
+            Descend into the madness of the Asylum, where the line between reality and illusion blurs. Sir Daniel faces psychological horrors and mind-bending puzzles as he explores the darkest corners of this haunting institution.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter8" style="padding-top:100px">
+          <!-- Chapter 8 content goes here -->
+          <h2>The Asylum Grounds</h2>
+          <p>
+            Step outside into The Asylum Grounds, where the battle against darkness continues in an open and perilous environment. Sir Daniel's determination is tested as he navigates this treacherous landscape to uncover the truth.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter9" style="padding-top:100px">
+          <!-- Chapter 9 content goes here -->
+          <h2>Inside the Asylum Again</h2>
+          <p>
+            Return to the Asylum's eerie interior, where the horror intensifies. Sir Daniel's quest takes unexpected turns, and he must confront even greater challenges within the asylum's walls.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <div class="chapter-section" id="chapter10" style="padding-top:100px">
+          <!-- Chapter 10 content goes here -->
+          <h2>The Time Device</h2>
+          <p>
+            Enter the mysterious realm of The Time Device, a place where time itself is distorted. Sir Daniel's final battle against the forces of darkness unfolds in this climactic chapter, where the fate of Gallowmere hangs in the balance.
+          </p>
+          <div class="image-row">
+            <img src="./assets/1.png" alt="Chapter 1 Image 1" style="height: 400px;" />
+            <img src="./assets/2.png" alt="Chapter 1 Image 2" style="height: 400px;" />
+            <img src="./assets/3.png" alt="Chapter 1 Image 3" style="height: 400px;" />
+            <img src="./assets/4.png" alt="Chapter 1 Image 4" style="height: 400px;" />
+          </div>
+        </div>
+        <!-- Ensure all other chapter sections have display: none by default -->
+      </div>
+      
+
+    <div class="content-section" id="tips">
+      <!-- Text Slideshow (unchanged) -->
+    <div class="slideshow-container">
+        <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 1</h3>
                 <p>Save Your Health: Health is a valuable resource in "MediEvil." Use healing items and potions wisely, especially during tough battles. Try to avoid taking unnecessary damage.</p>
             </div>
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 2</h3>
                 <p>Experiment with Weapons: The game offers a variety of weapons. Experiment with different weapons to find the ones that suit your playstyle best. Some weapons may be more effective against certain enemies.</p>
             </div>
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 3</h3>
                 <p>Block and Counter: Blocking attacks with your shield is crucial for survival. Learn the timing for blocking enemy strikes, and use counter-attacks when the opportunity arises.</p>
             </div>
             
-            <!-- Add more slides with game tips as needed -->
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 4</h3>
                 <p>Explore Thoroughly: Don't rush through levels. Explore every nook and cranny to find hidden items, secrets, and shortcuts. There are often valuable rewards for thorough exploration.</p>
             </div>
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 5</h3>
                 <p>Collect Chalices: Chalices are important collectibles in "MediEvil." Try to collect them in each level, as they can lead to unlocking powerful weapons and items.</p>
             </div>
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 6</h3>
                 <p>Use Your Shield Wisely: Your shield can block not only enemy attacks but also some environmental hazards. Keep it handy when navigating tricky areas.</p>
             </div>
-            <div class="slideshow-content" style="padding: 20px;">
+            <div class="slideshow-content" style="padding: 40px;">
                 <h3>Game Tip 7</h3>
                 <p>Pay Attention to the Story: "MediEvil" has an engaging storyline. Pay attention to the characters and dialogues to immerse yourself in the game's narrative.</p>
-            </div><div class="slideshow-content"> style="padding: 20px;"
+            </div><div class="slideshow-content" style="padding: 40px;"> 
                 <h3>Game Tip 8</h3>
                 <p>Practice Your Combat Skills: Combat in the game can be challenging. Practice your combat skills in safe areas to improve your abilities and timing.</p>
-            </div><div class="slideshow-content" style="padding: 20px;"> 
+            </div><div class="slideshow-content" style="padding: 40px;"> 
                 <h3>Game Tip 9</h3>
                 <p>Save Frequently: Make use of save points whenever you encounter them. Saving your progress regularly can prevent frustration if you happen to meet a difficult challenge.</p>
-            </div><div class="slideshow-content" style="padding: 20px;"> 
+            </div><div class="slideshow-content" style="padding: 40px;"> 
                 <h3>Game Tip 10</h3>
                 <p>Have Fun: Lastly, remember to have fun! "MediEvil" is known for its quirky and dark sense of humor. Enjoy the game's unique atmosphere and style.</p>
             </div>
-            
-            <a class="prev" onclick="changeSlide(-1)">Previous</a>
-            <a class="next" onclick="changeSlide(1)">Next</a>
-        </div>
-        <!-- End of Text Slideshow -->
     </div>
+    <!-- End of Text Slideshow -->
+    </div>
+
     <script>
+        function showChapter(chapterId) {
+          // Hide all chapter sections
+          const chapterSections = document.querySelectorAll(".chapter-section");
+          chapterSections.forEach((section) => {
+            section.style.display = "none";
+          });
+      
+          // Display the selected chapter
+          const selectedChapter = document.getElementById(chapterId);
+          if (selectedChapter) {
+            selectedChapter.style.display = "block";
+      
+            // Scroll to the selected chapter section
+            selectedChapter.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      
+        // Set Chapter 1 as the default
+        showChapter("chapter1");
+        // Slideshow controls
         let slideIndex = 0;
-        showSlides(slideIndex);
-
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
+        let slideshowInterval;
+        let isPlaying = true;
+      
+        showSlides();
+      
+        function plusSlides(n) {
+          showSlides((slideIndex += n));
         }
-
-        function showSlides(n) {
-            const slides = document.getElementsByClassName("slideshow-content");
-            if (n >= slides.length) { slideIndex = 0; }
-            if (n < 0) { slideIndex = slides.length - 1; }
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[slideIndex].style.display = "block";
+      
+        function currentSlide(n) {
+          showSlides((slideIndex = n));
         }
-
-        // Automatically change slides every 5 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-    </script>
-</body>
+      
+        function showSlides() {
+          const slides = document.querySelectorAll(".slideshow-gallery-item");
+          if (slideIndex >= slides.length) {
+            slideIndex = 0;
+          }
+          if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+          }
+          slides.forEach((slide) => {
+            slide.style.display = "none";
+          });
+          slides[slideIndex].style.display = "block";
+        }
+      
+        function playSlideshow() {
+          if (!isPlaying) {
+            isPlaying = true;
+            document.getElementById("playButton").innerHTML = "Pause &#10074;&#10074;";
+            slideshowInterval = setInterval(function () {
+              plusSlides(1);
+            }, 2000); // Change slide every 2 seconds (2000 milliseconds)
+          }
+        }
+      
+        function pauseSlideshow() {
+          if (isPlaying) {
+            isPlaying = false;
+            document.getElementById("playButton").innerHTML = "Play &#9654;";
+            clearInterval(slideshowInterval);
+          }
+        }
+      
+        // Initially, the slideshow is playing
+        playSlideshow();
+      </script>
+      
+  </body>
 </html>
