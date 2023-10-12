@@ -1,6 +1,47 @@
 # WEEK -3 SUMMARY
 This is a summary of the activities we did during the bootcamp. 
 
+- [WEEK -3 SUMMARY](#week--3-summary)
+  * [Deploying using Terraform Steps](#deploying-using-terraform-steps)
+    + [1. Resource Definitions](#1-resource-definitions)
+    + [2. Provider Configuration](#2-provider-configuration)
+    + [3. Resource Configuration](#3-resource-configuration)
+    + [4. Terraform Init](#4-terraform-init)
+    + [5. Terraform Plan](#5-terraform-plan)
+    + [6. Terraform Apply](#6-terraform-apply)
+    + [7. State Management](#7-state-management)
+    + [8. Output Variables](#8-output-variables)
+    + [9. Version Control](#9-version-control)
+    + [10. Automation](#10-automation)
+    + [11. Error Handling and Monitoring](#11-error-handling-and-monitoring)
+    + [12. Compliance and Security](#12-compliance-and-security)
+    + [13. Scaling and Updates](#13-scaling-and-updates)
+    + [14. Collaboration](#14-collaboration)
+  * [Making a provider Summary](#making-a-provider-summary)
+    + [1. Environment Setup:](#1-environment-setup-)
+    + [2. Provider Project Structure:](#2-provider-project-structure-)
+    + [3. Provider Configuration:](#3-provider-configuration-)
+    + [4. Provider Package:](#4-provider-package-)
+    + [5. Resource and Data Source Definitions:](#5-resource-and-data-source-definitions-)
+    + [6. Resource CRUD Operations:](#6-resource-crud-operations-)
+    + [7. Resource State Management:](#7-resource-state-management-)
+    + [8. Authentication and Configuration:](#8-authentication-and-configuration-)
+    + [9. Provider Factory Function:](#9-provider-factory-function-)
+    + [10. Unit Tests:](#10-unit-tests-)
+    + [11. Documentation:](#11-documentation-)
+    + [12. Provider Registration:](#12-provider-registration-)
+    + [13. Publish and Distribute:](#13-publish-and-distribute-)
+    + [14. Updates and Maintenance:](#14-updates-and-maintenance-)
+    + [15. Community and Support:](#15-community-and-support-)
+  * [Terraform Security Best Practices](#terraform-security-best-practices)
+    + [Credential and Access Management:](#credential-and-access-management-)
+    + [Configuration and State Management:](#configuration-and-state-management-)
+    + [Module and Provider Security:](#module-and-provider-security-)
+    + [Monitoring and Incident Response:](#monitoring-and-incident-response-)
+    + [Compliance and Disaster Recovery:](#compliance-and-disaster-recovery-)
+    + [Infrastructure Review and Updates:](#infrastructure-review-and-updates-)
+
+
 ## Deploying using Terraform Steps
 Infrastructure as Code (IaC): With Terraform, infrastructure is defined as code in HCL (HashiCorp Configuration Language). You write Terraform configuration files that specify the desired resources, their attributes, and relationships in a declarative manner.
 
