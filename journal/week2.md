@@ -73,41 +73,106 @@ CRUD stands for Create, Read Update, and Delete
 
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
-## Terraform Best Practices
-Some of the security best practices to note are as follows
 
-### Credential and Access Management:
-- Secure Credential Management
-- Least Privilege Principle
-- Protect Access Keys
-- Use Instance Roles and Managed Identities
+## Getting Started with Golang
 
-### Configuration and State Management:
-- Use Remote State Storage
-- Secure State Files
-- Enable TLS for Communication
-- Audit and Version Control
-- Infrastructure as Code (IaC) Review
+### 1. Install Go:
+The first step is to install Go on your computer. You can download the latest official distribution from the [Go website](https://golang.org/dl/) and follow the installation instructions for your specific operating system.
 
-### Module and Provider Security:
-- Verify Sources of Providers and Modules
-- Implement Input Validation
-- Use Dynamic Secrets for Credentials
+### 2. Set Up Your Workspace:
+Go uses a specific directory structure known as the "workspace." Inside your workspace, you will organize your Go code and dependencies. The workspace typically has three directories: src (source code), bin (compiled binaries), and pkg (package files).
 
-### Monitoring and Incident Response:
-- Monitoring and Logging
-- Resource Tagging for Tracking
-- Enable Security Logging and Alerts
-- Security Awareness Training
+Go expects you to have a single workspace for all your Go code. By default, your workspace is located at a directory called go in your home directory.
 
-### Compliance and Disaster Recovery:
-- Adhere to Compliance Standards
-- Implement Backup and Disaster Recovery
+### 3. Writing Your First Go Program:
+Create a new directory inside your workspace's src directory to organize your project. For example, if you're creating a simple "Hello World" program, you might do the following:
 
-### Infrastructure Review and Updates:
-- Regularly Review IaC
-- Keep Terraform and Plugins Updated
+```shell
+mkdir -p ~/go/src/hello
+
+```
+
+Inside the hello directory, create a Go source code file (with a .go extension), for example, hello.go. In this file, you can write your Go code. Here's a basic "Hello World" program:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+
+```
+
+### 4. Compile and Run Your Go Program:
+You can compile and run your Go program by using the go command. Open a terminal, navigate to your project directory, and then run the following commands:
+
+```shell
+go build  # This compiles your program
+./hello    # This runs the compiled binary
+```
+
+Replace hello with the name of your program if you named it differently.
+
+### 5. Learn the Basics:
+As you get comfortable with writing and running Go programs, it's essential to learn the fundamentals of the language. You can refer to the official Go tutorial and documentation, which is a great resource for beginners:
+
+### 6. Official Go Tour: An interactive tour of Go that covers its syntax and features.
+Official Go Documentation: The Go documentation includes an introduction, effective Go tips, and detailed language specifications.
+Explore Go Packages:
+Go has a rich standard library, and you can use various packages to simplify your development tasks. Take the time to explore the standard library and popular third-party packages available on the [Go Package Documentation](https://pkg.go.dev/).
+
+### 7. Practice and Build Projects:
+The best way to learn Go is by working on projects. Start with small projects and gradually build more complex applications to gain hands-on experience.
+
+### 8. Community and Resources:
+Join the Go community by participating in forums like the official [Go forum](https://forum.golangbridge.org/) and exploring online resources, blogs, and books dedicated to Go programming.
+
+Getting started with Go is an exciting journey, and it's known for its simplicity, performance, and strong support for concurrent programming. Enjoy your exploration of the Go programming language!
+
+## Building the Skeleton for the Custom Terraform Provider
+
+- Install Go and set up a Go workspace.
+- Install Terraform.
+- Create a New Go Module:
+- Initialize a new Go module for your custom provider project.
+
+```shell
+go mod init <module-name>
+```
+
+Write Provider Code:
 
 
+- Create a Go source code file for the custom provider. ```main.go``` .
+
+```go
+package main
+import "fmt"
+func main ()
+{
+    fmt.PrintIn("Hello, World")
+}
+
+```
+- Define a schema for the "Hello World" resource.
+- Implement CRUD operations (Create, Read, Update, Delete) for the "Hello World" resource.
 
 
+- Implement the Provider Configuration:
+
+Define a configuration structure for your provider, including any authentication or connection details required
+
+Write Terraform Resource and Data Source Definitions:
+
+Define Terraform resource and data source blocks in the .tf configuration files, specifying how they interact with your provider.
+
+```hcl
+resource "example_hello_world" "my_resource" {
+  message = "Hello, World!"
+}
+```
+Implement the Provider's Resource Functions:
+
+Implement the provider functions for CRUD operations using the Terraform SDK.
